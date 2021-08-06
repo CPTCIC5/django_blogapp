@@ -1,0 +1,13 @@
+{% extends "app1/base.html" %}
+{% block title %} HOME {% endblock title %}
+
+{% block  content %}
+
+{% if retrieve %}
+{% for post in retrieve %}
+<h3> <a href="{% url 'blog:detail' post.id %}"> {{post.title}}</h3></a>
+{% endfor %}
+{% else %}
+<p>No Post's Available at the current moment..</p>
+{% endif %}
+{% endblock content %}

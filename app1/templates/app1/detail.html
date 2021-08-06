@@ -1,0 +1,11 @@
+{% extends "app1/base.html" %}
+{% block title %} DETAILED VIEW {% endblock title %}
+
+{% block  content %}
+
+{% for r1 in n1 %}
+<h1><strong>{{r1.title}}</strong></h1>
+<p>{{r1.content}}</p>
+<a href="{% url 'blog:delete_post' r1.id %}"><button type="submit">Delete this post..</button></a>
+{% endfor %}
+{% endblock content %}

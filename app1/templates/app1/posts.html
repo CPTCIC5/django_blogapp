@@ -1,0 +1,18 @@
+{% extends "app1/base.html" %}
+{% block title %} ADD POST {% endblock title %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">TITLE</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="TITLE">
+      </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">CONTENT</label>
+        <input type="text" name="content" class="form-control" id="content" placeholder="CONTENT">
+    </div>
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+    {% endif %}
+{% endblock content %}
