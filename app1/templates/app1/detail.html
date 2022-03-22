@@ -6,6 +6,10 @@
 {% for r1 in n1 %}
 <h1><strong>{{r1.title}}</strong></h1>
 <p>{{r1.content}}</p>
+{% if user.is_authenticated %}
 <a href="{% url 'blog:delete_post' r1.id %}"><button type="submit">Delete this post..</button></a>
+{% else %}
+<a href="{% url 'users:login' %}"><button type="submit">Login.</button></a>
+{% endif %}
 {% endfor %}
 {% endblock content %}

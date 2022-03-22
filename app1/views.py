@@ -29,12 +29,14 @@ def addpost(request):
         n1.save()
         print(title,content)
         return HttpResponseRedirect('/')
-    else:
-        return render(request,'app1/posts.html')
     return render(request,'app1/posts.html')
 
 
 @login_required
 def delete_post(request,question_id):
-    delete=Posts.objects.filter(id=question_id).delete()
+    dele=Posts.objects.get(author=question_id)
+    if dele.author == request.user:
+        dele.delete()
+    else:
+        return render(request,'app1/index.html')
     return HttpResponseRedirect('/')
